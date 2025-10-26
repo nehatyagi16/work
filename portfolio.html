@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neha Tyagi - Risk and Compliance Professional</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* --- Global Variables --- */
+        :root {
+            --primary-color: #00aeef;
+            --dark-color: #2c3e50;
+            --light-color: #f9f9f9;
+            --white-color: #ffffff;
+            --grey-color: #555;
+            --border-color: #ecf0f1;
+        }
+
+        /* --- Base & Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        /* --- Utility Classes --- */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card {
+            background: var(--white-color);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary-color);
+            position: relative; /* For logo positioning */
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 1rem;
+        }
+
+        ul li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        ul li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* --- Header / Navigation --- */
+        header {
+            background: var(--primary-color);
+            color: var(--white-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        header .logo a {
+            color: var(--white-color);
+            text-decoration: none;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+            margin-left: 0;
+        }
+
+        header nav ul li {
+            margin-left: 2rem;
+            padding-left: 0;
+        }
+
+        header nav ul li::before {
+            content: none;
+        }
+
+        header nav ul li a {
+            color: var(--white-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding-bottom: 5px;
+            transition: border-bottom 0.2s ease-in-out;
+        }
+
+        header nav ul li a:hover {
+            border-bottom: 2px solid var(--white-color);
+        }
+
+        /* --- Hero (About) Section --- */
+        #about {
+            background: var(--white-color);
+            text-align: center;
+        }
+
+        #about h1 {
+            font-family: -apple-system, BlinkMacSystemFont, "Times New Roman", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-size: 3.5rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- NEW: Styles for Contact Icons --- */
+        #about .contact-icons {
+            margin: 1rem 0 1.5rem 0;
+            text-align: center;
+        }
+
+        #about .contact-icons a {
+            color: var(--grey-color); /* Quieter color */
+            font-size: 2.2rem;      /* Make icons a good size */
+            margin: 0 1rem;       /* Space them out */
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        #about .contact-icons a:hover {
+            color: var(--primary-color); /* Use main accent color on hover */
+        }
+        /* --- End New Styles --- */
+
+        #about .subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        #about .summary {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: auto;
+            color: var(--grey-color);
+        }
+
+        /* --- Experience Section --- */
+        #experience .job .job-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            padding-right: 90px;
+        }
+
+        #experience .job .company-date {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .company-logo {
+            max-width: 70px;
+            height: auto;
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+        }
+        
+        #experience .job ul {
+            padding-right: 80px;
+        }
+
+
+        /* --- Skills & Competencies Section --- */
+        #skills .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        #skills .skill-category {
+            background: var(--white-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        #skills .skill-category h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        #skills .skill-category ul {
+            margin-left: 0;
+        }
+
+        #skills .skill-category ul li {
+            background: #f0faff;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 5px;
+            padding-left: 1rem;
+        }
+
+        #skills .skill-category ul li::before {
+            content: none;
+        }
+
+        /* --- Projects & Achievements Section --- */
+        #projects .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        #projects .card ul li::before {
+            content: '🏆';
+            left: -5px;
+        }
+
+        #projects .card.projects ul li::before {
+            content: '🛠️';
+            left: -5px;
+        }
+
+        /* --- Education Section --- */
+        #education .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        #education .card p {
+            font-size: 1rem;
+            color: var(--grey-color);
+        }
+
+        #education .card ul li {
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding-left: 1.5rem;
+        }
+
+        #education .card ul li::before {
+            content: '🎓';
+            left: -5px;
+        }
+
+
+        /* --- Contact Section --- */
+        #contact {
+            text-align: center;
+        }
+
+        #contact p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        #contact .contact-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        #contact .contact-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: #e9ecef;
+            color: #888;
+            margin-top: 3rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+
+            header .logo {
+                margin-bottom: 1rem;
+            }
+
+            header nav ul {
+                padding-left: 0;
+            }
+
+            header nav ul li {
+                margin: 0 0.75rem;
+            }
+
+            #projects .projects-grid,
+            #education .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            #about h1 {
+                font-size: 2.5rem;
+            }
+
+            #about .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .company-logo {
+                position: static;
+                float: right;
+                margin-top: 1rem;
+            }
+            
+            .card.job ul {
+                clear: both;
+                padding-right: 0;
+            }
+            #experience .job .job-title {
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#about">Neha Tyagi</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education & Certifications</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="about">
+            <div class="container">
+                <h1>Neha Tyagi</h1>
+
+                <div class="contact-icons">
+                    <a href="https://www.linkedin.com/in/nehatyagi16/" target="_blank" aria-label="LinkedIn Profile">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:nehatyagi16@gmail.com" aria-label="Send Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <p class="subtitle">Risk and Compliance Professional</p>
+                <p class="summary">
+                    Seasoned Risk and Compliance professional with over 12 years of experience in Third Party Risk Management (TPRM),
+                    Supplier Management, Vendor Audit and Assurance, Risk Management, Contract Negotiation, Policy and Document
+                    review, Information & Cyber Security, Resilience, Risk Identification and Mitigation, Performance Review, Contract
+                    Management, Process Improvement, Change Management, Stakeholder management, and Regulatory Compliance.
+                </p>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <h2>Professional Experience</h2>
+
+                <div class="card job">
+                    <img src="db.png" alt="Deutsche Bank Logo" class="company-logo">
+                    <h3 class="job-title">Assistant Vice President | Vendor Management</h3>
+                    <p class="company-date">Deutsche Bank (December 2023 – Present)</p>
+                    <ul>
+                        <li>Implemented Divisional intra group service framework & process across Technology Data & Innovation.</li>
+                        <li>Managing Risk and Control for the vendors in line with TPRM policies and regulatory requirements.</li>
+                        <li>Supporting business or service owners for enhancement of existing contract / new contracts.</li>
+                        <li>Assisted business in review of the contract ensuring relevant clause of applicable regulatory requirement are covered, SLA, Service credit, Governance Reports & model with expected frequency are captured.</li>
+                        <li>Manage risk & assurance reviews through assessments ensuring they are compliant with TPRM framework.</li>
+                        <li>Monitoring the performance review of the service in line with the contractual requirement & Business Management.</li>
+                        <li>Review and submission of ECB PRA register, outsourcing register, MAS outsourcing register in line with the services.</li>
+                        <li>Review and implementation of new regulatory requirement within control assessment / contract remediation.</li>
+                    </ul>
+                </div>
+
+                <div class="card job">
+                    <img src="kp.png" alt="KPMG Logo" class="company-logo">
+                    <h3 class="job-title">Consultant – TPRM (Third Party Risk Management)</h3>
+                    <p class="company-date">KPMG Assurance and Consulting Services LLP. (December 2022 – December 2023)</p>
+                    <ul>
+                        <li>Team Lead for third-party risk management engagements for performing third party security reviews.</li>
+                        <li>Reviewed vendor’s compliance against IT security certifications like ISO27001 and reports like SOC2 Type2.</li>
+                        <li>Tracking & Monitoring of the remediation of the identified gaps/ findings from the assessment review.</li>
+                        <li>Reviewed contracts and service agreements between the bank and vendors to ensure that regulatory requirements are incorporated.</li>
+                        <li>Involved in the process improvement process for the vendor risk assessment process at the Banks.</li>
+                        <li>Conducted gap analysis to identify areas for improvement in the process.</li>
+                    </ul>
+                </div>
+
+                <div class="card job">
+                    <img src="b.png" alt="Barclays Logo" class="company-logo">
+                    <h3 class="job-title">Various Roles (Supplier Manager, SRM Analyst and Process Advisor)</h3>
+                    <p class="company-date">Barclays Group Service Centre Pvt Ltd. (March 2015 – December 2022)</p>
+                    <ul>
+                        <li>Manage suppliers in line with Third Party Risk Management (TPRM) Standards (EBA, GDPR, Schrems II).</li>
+                        <li>Manage risk & assurance attestations and analyse supplier’s conformance to Barclays’ Standards.</li>
+                        <li>Monitor supplier’s remediation plan and track the progress to ensure timely execution.</li>
+                        <li>Timely review of the contract, supplier performance and validating against the agreed SLAs in the contract.</li>
+                        <li>Suppliers were tested on applicable controls like Data Privacy, Information and Cyber Security, Technology Risk, etc.</li>
+                        <li>Identify cost saving opportunities with the suppliers to drive commercial value.</li>
+                        <li>Draft Contract Change Notes (CCN), Addendum, short form agreements, etc.</li>
+                    </ul>
+                </div>
+
+                <div class="card job">
+                    <img src="rbs.png" alt="RBS Logo" class="company-logo">
+                    <h3 class="job-title">Various Roles (Change Management, Business Implementation Team - Officer)</h3>
+                    <p class="company-date">RBS Business Services Private Limited (March 2012- January 2014)</p>
+                    <ul>
+                        <li>Due Diligence for and providing implementation guidelines as per the processes.</li>
+                        <li>Monitoring project risks and scope creep to identify potential problems and proactively identifying solutions.</li>
+                        <li>Integrated change management activities and phases of the project into Implementation Plan.</li>
+                        <li>Part of the HVST TEAM - High Value Service Team which was entitled to handle top 250 client of RBS.</li>
+                        <li>Experience in Service Request Management and performing user account management activities.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>Core Competencies & Software</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Core Competencies</h3>
+                        <ul>
+                            <li>Third Party Risk Management (TPRM)</li>
+                            <li>Vendor Assurance & Management</li>
+                            <li>Risk Identification & Mitigation</li>
+                            <li>Contract Review & Negotiation</li>
+                            <li>Information & Cyber Security</li>
+                            <li>Regulatory Compliance</li>
+                            <li>Gap Assessment & Process Improvement</li>
+                            <li>Data Governance</li>
+                            <li>Change & Project Management</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Software & ERP</h3>
+                        <ul>
+                            <li>COUPA</li>
+                            <li>SAP One Source</li>
+                            <li>Process Unity</li>
+                            <li>ServiceNow</li>
+                            <li>Ariba</li>
+                            <li>MS Office Suite</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>Projects & Achievements</h2>
+                <div class="projects-grid">
+                    <div class="card projects">
+                        <h3>Key Projects</h3>
+                        <ul>
+                            <li>Automation of Risk Notifications (2017)</li>
+                            <li>Lean & Automation (2018)</li>
+                            <li>Rapid Ratings – Proof of concept (2018)</li>
+                            <li>GMSL – Global Managed Supplier List (2019)</li>
+                            <li>Process Unity (2020)</li>
+                            <li>CLM – Contract Life Cycle Management (2021)</li>
+                            <li>Service Risk Evaluation (2022)</li>
+                            <li>Centralization (2022)</li>
+                        </ul>
+                    </div>
+                    <div class="card achievements">
+                        <h3>Key Achievements</h3>
+                        <ul>
+                            <li>Recognized for Lean & Automation with the introduction of supplier call (2018)</li>
+                            <li>Centralizing suppliers with TPRM standards (2022)</li>
+                            <li>Performance Excellence - Handling bulk request and prioritizing with related teams (2013)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <h2>Education & Certifications</h2>
+                <div class="education-grid">
+                    <div class="card">
+                        <h3>Education</h3>
+                        <div class="education-item">
+                            <h3>PGDM, Finance (Batch-2011)</h3>
+                            <p>Institute of Marketing and Management, New Delhi</p>
+                        </div>
+                        <br>
+                        <div class="education-item">
+                            <h3>BBA (2009)</h3>
+                            <p>International Management Centre, New Delhi</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Certifications</h3>
+                        <ul>
+                            <li>ISO27001 LA</li>
+                            <li>Prince2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Neha Tyagi. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
